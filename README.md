@@ -19,7 +19,7 @@ torchrun --standalone --nproc_per_node 1 torchrun_main.py \
          --optimizer c-adamw \
          --max_length 256
 ```
-Rebuttal run for 100M
+Rebuttal run on 100M for up to 50B tokens
 ```bash
 torchrun --rdzv_id=$SLURM_JOB_ID \
          --rdzv-backend=c10d \
