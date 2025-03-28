@@ -1,4 +1,4 @@
-# icml_cautious_optimizer
+# ICML_Cautious_Optimizers
 Anonymous release for cautious optimizers
 
 ### Pretraining Llama on C4
