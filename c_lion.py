@@ -18,7 +18,7 @@ def update_fn(p, grad, exp_avg, lr, wd, beta1, beta2):
     # weight update
     update = exp_avg.clone().mul_(beta1).add(grad, alpha = 1 - beta1).sign_()
     mask = (update * grad > 0).to(grad.dtype)
-    mask = mask * (mask.numel() / (mask.sum() + 1))
+    mask.div_(mask.mean().clamp_(min=1e-3))
     p.add_(update * mask, alpha = -lr)
 
     # decay the momentum running average coefficient
