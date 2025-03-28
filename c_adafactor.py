@@ -243,7 +243,7 @@ class Adafactor(Optimizer):
                     exp_avg = state["exp_avg"]
                     exp_avg.mul_(group["beta1"]).add_(update, alpha=(1 - group["beta1"]))
                     mask = (exp_avg * grad > 0).to(grad.dtype)
-                    mask = mask * (mask.numel() / (mask.sum() + 1))
+                    mask.div_(mask.mean().clamp_(min=1e-3))
                     update = exp_avg * mask
     
                 if group["weight_decay"] != 0:
