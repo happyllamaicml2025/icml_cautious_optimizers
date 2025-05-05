@@ -1,4 +1,4 @@
-# ICML_Cautious_Optimizers
+# Neurips2025_Cautious_Optimizers
 Anonymous release for cautious optimizers
 
 ### Pretraining Llama on C4
